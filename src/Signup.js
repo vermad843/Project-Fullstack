@@ -9,7 +9,7 @@ function Signup() {
         address : '',
         aadharNumber : ''
     });
-
+  
     const handleChange = (e) => {
         setName({
             ...name,
@@ -17,11 +17,23 @@ function Signup() {
         })
     }
 
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        const users = {
+            firstName : name.firstName,
+            lastName : name.lastName,
+            mobileNumber : name.mobileNumber,
+            address : name.address,
+            aadharNumber : name.aadharNumber
+        };
+        console.log(users);
+    }
+
     return (
         <div className = "wrapper">
             <div className = "form-wrapper">
                 <h1>Create Account</h1>
-                <form >
+                <form onSubmit = {handleSubmit}>
                    <div className = "firstName">
                        <label htmlFor = "firstName">First Name</label>
                        <input 
